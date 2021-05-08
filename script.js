@@ -63,8 +63,16 @@ function iniciarJogo(){
     if(direction == "up") snakeY -= box;
     if(direction == "down") snakeY += box;
 
-    //função top, retira o ultimo elemento do array
-    snake.pop();
+    if(snakeX != food.x || snakeY != food.y){
+        //função top, retira o ultimo elemento do array
+        snake.pop();
+    }
+    else{
+       food.x = Math.floor(Math.random() * 15 + 1) * box; //gerar numeros exeto os flutuantes 
+       food.y = Math.floor(Math.random() * 15 + 1) * box;
+    }
+
+
 
     //nova cabeça da cobrinha
     let newHead ={
