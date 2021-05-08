@@ -7,6 +7,7 @@ snake[0] = { //definindo o local para a cobrinha iniciar, no meio da tela
     x: 8 * box, //cartesiano
     y: 8 * box
 };
+let direction ="right"; //direção da cobrinha
 
 function criarBG(){ // função de criação do background
     context.fillStyle = "lightgreen"; //fundo do jogo
@@ -21,5 +22,9 @@ function criarCobrinha(){ // função de preenchimento da cobrinha
     }
 }
 
-criarBG(); 
-criarCobrinha();
+function iniciarJogo(){
+    criarBG(); 
+    criarCobrinha();
+}
+
+let jogo = setInterval(iniciarJogo, 100); // o intervalo de 100 ms para iniciar o jogo e atualizar para dar continuiadade sem travar
