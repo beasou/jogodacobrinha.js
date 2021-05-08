@@ -25,6 +25,27 @@ function criarCobrinha(){ // função de preenchimento da cobrinha
 function iniciarJogo(){
     criarBG(); 
     criarCobrinha();
+
+    let snakeX = snake[0].x;
+    let snakeY = snake[0].y;
+
+    //add ou dec quadrado quando a cobrinha se move
+    if(direction == "right") snakeX += box;
+    if(direction == "left") snakeX -= box;
+    if(direction == "up") snakeY -= box;
+    if(direction == "down") snakeY += box;
+
+    //função top, retira o ultimo elemento do array
+    snake.pop();
+
+    //nova cabeça da cobrinha
+    let newHead ={
+        x: snakeX,
+        y: snakeY
+    }
+
+    snake.unshift(newHead);
+
 }
 
 let jogo = setInterval(iniciarJogo, 100); // o intervalo de 100 ms para iniciar o jogo e atualizar para dar continuiadade sem travar
