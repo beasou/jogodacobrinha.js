@@ -54,7 +54,7 @@ function iniciarJogo(){
         if(snake[0].x == snake[i].x && snake[0].y == snake[i].y){
             //parar a função criar jogo
             clearInterval(jogo);
-            alert('Game Ovar:(');
+            alert('Fim de Jogo 🐍hahaha');
         }
     }
 
