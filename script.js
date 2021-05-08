@@ -8,6 +8,12 @@ snake[0] = { //definindo o local para a cobrinha iniciar, no meio da tela
     y: 8 * box
 };
 let direction ="right"; //direção da cobrinha
+let food = {
+    //faz a comida da cobrinha aparecer em vários locais diferentes
+    x: Math.floor(Math.random() * 15 + 1) * box, //gerar numeros exeto os flutuantes 
+    y: Math.floor(Math.random() * 15 + 1) * box
+
+}
 
 function criarBG(){ // função de criação do background
     context.fillStyle = "lightgreen"; //fundo do jogo
@@ -20,6 +26,12 @@ function criarCobrinha(){ // função de preenchimento da cobrinha
         context.fillStyle = "green"; //vai pintar o corpo da cobrinha de verde 
         context.fillRect(snake[i].x, snake[i].y, box, box)
     }
+}
+
+function drawFood(){ //comida da cobrinha
+    context.fillStyle = "blue";
+    context.fillRect(food.x, food.y, box, box);
+
 }
 
 document.addEventListener('keydown', update);
@@ -36,9 +48,11 @@ function iniciarJogo(){
     if(snake[0].x < 0 && direction == "left") snake[0].x = 16 * box;
     if(snake[0].y > 15 * box && direction == "down") snake[0].y = 0;
     if(snake[0].y < 0 && direction == "up") snake[0].y = 16 * box;
-
+    
+    //chamando as funções
     criarBG(); 
     criarCobrinha();
+    drawFood();
 
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
